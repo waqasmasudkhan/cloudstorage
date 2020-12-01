@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+
+    <title>Result</title>
+</head>
+<body class="p-3 mb-2 bg-light text-black">
+<div class="container justify-content-center w-50 p-3" style="margin-top: 5em;">
+    <!--File results -->
+    <div  th:if="${fileUploadSuccess}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>The file was successfully saved. Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${fileUploadError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Upload was unsuccessful. Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${fileNameError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>A file with the same name exists, upload was unsuccessful</span>
+        <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div  th:if="${deleteFileSuccess}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>The file was successfully deleted. Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${deleteFileError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>An error was encountered, deletion was unsuccessful</span>
+        <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${fileEmptyUploadError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>An error was encountered, no file was selected</span>
+        <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <!--Notes results -->
+    <div  th:if="${notesSavedSuccess}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>Notes were successfully saved. Click <a id="notesSavedSuccess" th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${notesSavedError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Upload was unsuccessful. Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div  th:if="${notesUpdateSuccess}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>Your updates to the notes were successfully saved. Click <a  id="notesUpdateSuccess" th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${notesUpdateError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Updates to the notes were not saved, upload was unsuccessful</span>
+        <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div  th:if="${notesDeleteSuccess}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>Deletion of the notes were successfully. Click <a id="notes-delete-success" th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${notesDeleteError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Unable to delete the notes</span>
+        <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <!-- Credentials results -->
+    <div  th:if="${credentialsSavedSuccess}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>Credentials were successfully saved. Click <a id="credentials-saved-success" th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${credentialsSavedError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Upload was unsuccessful. Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div  th:if="${credentialsUpdateSuccess}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>Your updates to the credentials were successfully saved. Click <a id="credentials-update-success" th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${credentialsUpdateError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Updates to the notes were not saved, upload was unsuccessful</span>
+        <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div  th:if="${credentialsDeleteSuccess}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>Deletion of the credentials was successful. Click <a id="credentials-delete-success" th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${credentialsDeleteError}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Credentials deletion was unsuccessful</span>
+        <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+</div>
+</body>
+</html>
