@@ -14,37 +14,28 @@ class CloudStorageApplicationTests {
 	private int port;
 
 	private static WebDriver driver;
-	private Login login= new Login(driver);
-	private SignUp signup= new SignUp(driver);
-	private Home home = new Home(driver);
-	private Result result = new Result(driver);
 
 
 
 	@BeforeAll
 	static void beforeAll() {
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+
 	}
 
 	@BeforeEach
 	public void beforeEach() throws InterruptedException {
-		//this.driver = new ChromeDriver();
+		this.driver = new ChromeDriver();
+
 	}
 
 	@AfterEach
 	public void afterEach() {
 		if (this.driver != null) {
-		//	driver.quit();
+			driver.quit();
 		}
 	}
 
-	/*@AfterAll
-	public static void afterAll(){
-		if(this.driver != null){
-			driver.quit();
-		}
-	}*/
 
 //A test that verifies that an unauthorized user can only access the login and signup pages.
 
@@ -64,7 +55,13 @@ class CloudStorageApplicationTests {
 	@Test
 	public void loginSignUpNotesTest() throws InterruptedException {
 		//A test that signs up a new user, logs in, verifies that the home page is accessible, logs out, and verifies that the home page is no longer accessible.
+
 		driver.get("http://localhost:" + this.port + "/signup");
+		SignUp signup= new SignUp(driver);
+		Login login= new Login(driver);
+		Home home = new Home(driver);
+		Result result = new Result(driver);
+
 		Thread.sleep(3000);
 		signup.setFirstName("testFirstName");
 		signup.setLastName("testLastName");
@@ -149,6 +146,10 @@ class CloudStorageApplicationTests {
 	public void credentialsTest() throws InterruptedException {
 		//A test that creates a set of credentials, verifies that they are displayed, and verifies that the displayed password is encrypted.
 		driver.get("http://localhost:" + this.port + "/signup");
+		SignUp signup= new SignUp(driver);
+		Login login= new Login(driver);
+		Home home = new Home(driver);
+		Result result = new Result(driver);
 		Thread.sleep(3000);
 		signup.setFirstName("Waqas");
 		signup.setLastName("Khan");
